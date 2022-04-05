@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Data
 @Entity
@@ -16,4 +17,7 @@ public class Role {
     @Column(nullable = false, unique = true)
     @NotEmpty
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 }
