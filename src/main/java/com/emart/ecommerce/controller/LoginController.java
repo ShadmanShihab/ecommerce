@@ -44,7 +44,7 @@ public class LoginController {
         if (user.equals("ADMIN")) {
             return "redirect:/admin";
         } else {
-            return "redirect:/user/home";
+            return "redirect:/shop";
         }
     }
 
@@ -63,6 +63,6 @@ public class LoginController {
         userRepository.save(user);
         request.login(user.getEmail(), user.getPassword());
 
-        return "redirect:/";
+        return "redirect:/shop";
     }
 }

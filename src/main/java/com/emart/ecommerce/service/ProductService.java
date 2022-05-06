@@ -29,6 +29,14 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<Product> getProductsById(Long id) {
+        return productRepository.findAllById(id);
+    }
+
+    public List<Product> getProductsByCategoryId(int id) {
+        return productRepository.findAllByCategoryId(id);
+    }
+
     public void add(Product product) {
         try {
             productRepository.save(product);
