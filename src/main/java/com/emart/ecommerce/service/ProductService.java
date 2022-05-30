@@ -3,17 +3,16 @@ package com.emart.ecommerce.service;
 import com.emart.ecommerce.dto.ProductDTO;
 import com.emart.ecommerce.model.Product;
 import com.emart.ecommerce.repository.ProductRepository;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -29,8 +28,8 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public List<Product> getProductsById(Long id) {
-        return productRepository.findAllById(id);
+    public Optional<Product> getProductsById(Long id) {
+        return productRepository.findById(id);
     }
 
     public List<Product> getProductsByCategoryId(int id) {

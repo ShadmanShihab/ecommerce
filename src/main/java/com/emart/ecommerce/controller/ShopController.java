@@ -44,4 +44,10 @@ public class ShopController {
         model.addAttribute("products", products);
         return "shop/productList";
     }
+
+    @GetMapping("/shop/viewproduct/{id}")
+    public String viewProduct(Model model, @PathVariable Long id) {
+        model.addAttribute("product", productService.getProductsById(id).get());
+        return "shop/viewProduct";
+    }
 }
